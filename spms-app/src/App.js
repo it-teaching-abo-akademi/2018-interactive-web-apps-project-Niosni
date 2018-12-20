@@ -7,7 +7,8 @@ class App extends Component {
     portfolios: [
       {
         id: 1,
-        name: "Portfolio 1"
+        name: "Portfolio 1",
+        currency: "EUR"
       }
     ],
     newId: 1
