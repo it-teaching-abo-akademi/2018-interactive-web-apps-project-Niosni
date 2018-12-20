@@ -13,11 +13,15 @@ class App extends Component {
     newId: 1
   };
   handleAddPortfolio = () => {
-    const newId = this.state.newId + 1;
-    this.setState({ newId });
-    const name = "Portfolio " + newId;
-    const portfolios = [...this.state.portfolios, { id: newId, name }];
-    this.setState({ portfolios });
+    if (this.state.portfolios.length <= 10) {
+      const newId = this.state.newId + 1;
+      this.setState({ newId });
+      const name = "Portfolio " + newId;
+      const portfolios = [...this.state.portfolios, { id: newId, name }];
+      this.setState({ portfolios });
+    } else {
+      alert("You can only have 10 portfolios!");
+    }
   };
 
   handleRemovePortfolio = portfolio => {
