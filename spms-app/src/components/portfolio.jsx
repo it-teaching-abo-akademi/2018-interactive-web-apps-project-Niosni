@@ -12,7 +12,7 @@ class Portfolio extends Component {
         unitValue: 4.72,
         quantity: 100,
         totalValue: 47.2,
-        selected: true
+        selected: false
       },
       {
         id: 2,
@@ -20,7 +20,7 @@ class Portfolio extends Component {
         unitValue: 82.78,
         quantity: 5,
         totalValue: 827.8,
-        selected: true
+        selected: false
       }
     ],
     portfolioValue: 0,
@@ -35,6 +35,7 @@ class Portfolio extends Component {
   };
 
   updatePrices = () => {
+    this.setState({ euros: false });
     let stocks = [...this.state.stocks];
 
     let total = 0;
@@ -105,8 +106,13 @@ class Portfolio extends Component {
         });
     }
   };
+
   render() {
     const { stocks } = this.state;
+    let rows = stocks.map(Stock => {
+      return <StockRow key={Stock.id} data={Stock} />;
+    });
+
     return (
       <div className="container border m-3">
         <text type="text" onClick="">
@@ -131,7 +137,7 @@ class Portfolio extends Component {
           Remove portfolio
         </button>
         <br />
-        <div>
+        {/* <div>
           <ReactTable
             data={stocks}
             columns={[
@@ -166,7 +172,20 @@ class Portfolio extends Component {
             className="-striped -highlight"
           />
           <br />
-        </div>
+        </div> */}
+        <table className="table">
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>Unit Value</td>
+              <td>Quantity</td>
+              <td>Total Value</td>
+              <td>Select</td>
+            </tr>
+            {rows}
+          </tbody>
+        </table>
+
         <Stocks
           stocks={this.state.stocks}
           onAddStock={this.handleAddStock}
@@ -191,7 +210,7 @@ class Portfolio extends Component {
           Show graph
         </button>
         <button
-          onClick={() => this.props.onRemoveStock(this.props.stock.id)}
+          onClick={() => this.handleRemoveStock()}
           className="btn btn-danger btn-sm m-2"
         >
           Remove selected stocks
@@ -199,7 +218,27 @@ class Portfolio extends Component {
       </div>
     );
   }
+
+  handleRemoveStock = () => {
+    const stocks = this.state.stocks.filter(s => s.selected !== true);
+    this.setState({ stocks });
+  };
+  selectStock = () => {
+    console.log("ines");
+  };
   getPortfolioName;
 }
-
+const StockRow = props => {
+  return (
+    <tr>
+      <td>{props.data.name}</td>
+      <td>{props.data.unitValue}</td>
+      <td>{props.data.quantity}</td>
+      <td>{props.data.totalValue}</td>
+      <td>
+        <input type="checkbox" id={props.data.name} />
+      </td>
+    </tr>
+  );
+};
 export default Portfolio;
