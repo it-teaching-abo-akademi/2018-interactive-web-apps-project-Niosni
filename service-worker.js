@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/it-teaching-abo-akademi/2018-interactive-web-apps-project-Niosni/precache-manifest.8f781449df558703e31c2304b6ab1095.js"
+  "/2018-interactive-web-apps-project-Niosni/precache-manifest.34d09de88733d92c12f08c814d2efc66.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/it-teaching-abo-akademi/2018-interactive-web-apps-project-Niosni/index.html", {
+workbox.routing.registerNavigationRoute("/2018-interactive-web-apps-project-Niosni/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
