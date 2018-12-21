@@ -5,7 +5,6 @@
   "homepage": "https://github.com/it-teaching-abo-akademi/2018-interactive-web-apps-project-Niosni",
   "dependencies": {
     "bootstrap": "^4.2.1",
-    "gh-pages": "^2.0.1",
     "npm": "^6.5.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -28,5 +27,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
